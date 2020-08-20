@@ -4,6 +4,9 @@
 ### SubScanner 
 Scan a domain for the instance of up to 10,000 subdomains and return all of the connected domains
 
+#### Dependencies
+*	requests
+
 Domains from: https://github.com/danielmiessler/RobotsDisallowed
 
 ### BannerYank
