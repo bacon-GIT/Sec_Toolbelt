@@ -1,10 +1,17 @@
+import logging
+import threading
+import time
 import requests
+import sys
 from requests.packages import urllib3
+
+# Program Settings
 urllib3.disable_warnings()
 
 
-def find_team(domain, iters):
+def scan_domain(domain, iters):
 
+    flag = True
     i = 0
     successful_conn = []
     with open("domains.txt", "r", encoding="UTF-8") as domains:
@@ -14,37 +21,37 @@ def find_team(domain, iters):
             try:
                 i += 1
                 URL = "https://{}{}".format(domain, line)
-                page = requests.get(URL, verify=False)
+                page = requests.get(URL, verify=False, allow_redirects=flag)
                 print("Scan {} of {} returned a code of:".format(i, line), page)
 
                 print("Page data:\t", page)
                 page_response = page.status_code
 
-                if (page_response == 200):
-                    print("Successful Connection!!")
+                if page_response == 200:
+                    logging.info("Successful Connection!!")
                     successful_conn.append(line)
 
             except requests.exceptions.InvalidURL:
-                print(f"{line} Not Found :-(")
+                logging.warning(f"{line} Not Found :-(")
 
             except requests.exceptions.TooManyRedirects:
-                URL = "https://{}{}".format(domain, line)
-                page = requests.get(URL, verify=False, allow_redirects=False)
-                print("Scan {} of {} returned a code of:".format(i, line), page)
+                flag = False
 
-                print("Page data:\t", page)
-                page_response = page.status_code
-
-                if (page_response == 200):
-                    print("Successful Connection!!")
-                    successful_conn.append(line)
-
-
-    print(f"Successful Connections to {URL}:\n")
+    print(f"Successful Connections to: {URL}\n")
+    print("The following returned successful connection attempts:")
     for x in successful_conn:
+        print("~~~~~~~~~~~")
         print(x)
 
+
 def main():
+
+    try:
+        if ('d' or 'Debug') in sys.argv[1]:
+            print("Debugging on!")
+            logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+    except IndexError:
+        print("Debugging off, launch SubScanner with -d to turn it on.")
 
     banner = '''
  _______           ______   _______  _______  _______  _        _        _______  _______ 
@@ -62,8 +69,8 @@ def main():
     try:
         iters = int(input("Number of domains to try:\t"))
     except TypeError:
-        print("Please enter the number of domains to scan.")
-    find_team(to_scan, iters)
+        logging.error("Please enter the number of domains to scan.")
+    scan_domain(to_scan, iters)
 
 
 if __name__ == "__main__":
