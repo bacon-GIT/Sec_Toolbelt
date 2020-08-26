@@ -73,7 +73,7 @@ def main():
 
     threads = list()
 
-    with open("domains.txt", "r", encoding="UTF-8") as domains:
+    with open("assets/domains.txt", "r", encoding="UTF-8") as domains:
         for line in domains:
             if i > iters:
                 break
