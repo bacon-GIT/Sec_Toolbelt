@@ -9,6 +9,13 @@ Scan a domain for the instance of up to 10,000 subdomains and return all of the 
 
 Domains from: https://github.com/danielmiessler/RobotsDisallowed
 
+
+### BlackListCheck
+Checks a list of IP's against a variety of blacklists, then uploads results into a pretty json file. 
+Working on adding more blacklists to check against, but for now it checks AbuseIPDB and SpamCop.
+There is also a section for VirusTotal that is being worked on ATM, but you need a premo API key for that.
+
+
 ### BannerYank
 #### About
 Banner Yank is a banner grab attack aggregator WIP.
