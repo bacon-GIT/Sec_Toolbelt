@@ -77,7 +77,7 @@ IPS_REPORTED = {}
 def NO_UI():
 
     # For testing a large range of IP's to make sure there are no edge cases
-    with open("ips.txt", 'r') as ips:
+    with open("assets/ips.txt", 'r') as ips:
         for line in ips:
             spamlists = scrape_Listed(line.rstrip())
 
@@ -98,7 +98,7 @@ def NO_UI():
 # This one has colors and verbosity
 def UI():
     # For testing a large range of IP's to make sure there are no edge cases
-    with open("ips.txt", 'r') as ips:
+    with open("assets/ips.txt", 'r') as ips:
         for line in ips:
             print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print(f"Now searching for {line.rstrip()}:")
