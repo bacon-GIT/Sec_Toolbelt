@@ -1,6 +1,13 @@
 # EnumerationTools
 ## Tools for recon on domains and servers
 
+### Get-HostInfo
+A very useful rubber-ducky esque script that swipes a bunch of host info. Currently, it returns:
+*	WiFi Passwords in plaintext
+*	Drives, available space and whether or not they're encrypted
+*	TCP connections
+*	Other misc host info
+
 ### SubScanner 
 Scan a domain for the instance of up to 10,000 subdomains and return all of the connected domains
 
@@ -51,4 +58,4 @@ https://securitytrails.com/blog/banner-grabbing
 
 
 
-constantly a w.i.p
+# constantly a w.i.p
