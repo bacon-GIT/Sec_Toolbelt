@@ -8,7 +8,7 @@ A very useful rubber-ducky esque script that swipes a bunch of host info. Curren
 *	TCP connections
 *	Other misc host info
 
-# Got some lines from: https://chrishales.wordpress.com/2018/01/03/powershell-password-one-liners/
+#### Got some lines from: https://chrishales.wordpress.com/2018/01/03/powershell-password-one-liners/
 
 ### SubScanner 
 Scan a domain for the instance of up to 10,000 subdomains and return all of the connected domains
