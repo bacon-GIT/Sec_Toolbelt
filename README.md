@@ -33,6 +33,8 @@ Format:
 |
 | LokiBot Malware
 
+
+
 ### BlackListCheck
 Checks a list of IP's against a variety of blacklists, then uploads results into a pretty json file. 
 Working on adding more blacklists to check against, but for now it checks AbuseIPDB and SpamCop.
