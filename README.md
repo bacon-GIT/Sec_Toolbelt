@@ -18,6 +18,20 @@ Scan a domain for the instance of up to 10,000 subdomains and return all of the 
 
 Domains from: https://github.com/danielmiessler/RobotsDisallowed
 
+### USCERTParse
+Parse the latest Cert vulnerabilities into a table. I run this as my MOTD.
+Syntax:
+Run with no arguments for a default of 5, or use '--entry' argument to specify:
+
+	python3 parse.py --entry 10
+
+Format:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+| TITLE         LINK                                                    DATE PUBLISHED
+|
+| AA20-266A     | https://us-cert.cisa.gov/ncas/alerts/aa20-266a        | Tue, 22 Sep 2020 15:00:00 +0000
+|
+| LokiBot Malware
 
 ### BlackListCheck
 Checks a list of IP's against a variety of blacklists, then uploads results into a pretty json file. 
