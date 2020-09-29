@@ -1,0 +1,40 @@
+  GNU nano 4.8                                                 parse.py                                                           import feedparser
+import argparse
+
+
+# parseAlerts grabs the (entry), extracts all necessary info, dumps the
+# rest into "more_details" and returns a list.
+def parseAlerts(entry):
+
+    # Parse all vulnerabilities into $feed
+    feed = feedparser.parse("https://www.us-cert.gov/ncas/alerts.xml")
+    # Sets $feed_entries to the current vulnerability
+    feed_entries = feed.entries[entry]
+
+    # Parse elements
+    title = feed_entries['title']
+    link = feed_entries['link']
+    summary = feed_entries['published']
+
+    # Return items from list
+    vuln_entry = []
+    vuln_entry.extend([title, link, summary])
+    return vuln_entry
+
+
+parser = argparse.ArgumentParser(description="Give vuln entry")
+parser.add_argument("--entry", nargs='?', default=5, type=int)
+args = parser.parse_args()
+
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print("| TITLE\t\tLINK\t\t\t\t\t\t\tDATE PUBLISHED")
+
+for i in range(args.entry):
+    alert = parseAlerts(i)
+
+    # Seperate title of alert from description, for better formatting
+    alert.append(alert[0][11:])
+    alert[0] = alert[0][:9]
+
+    print(f"| \n| {alert[0]}\t| {alert[1]}\t| {alert[2]}\n|\n| {alert[3]}")
+    print("_________________________________________________________________________________________________________")
