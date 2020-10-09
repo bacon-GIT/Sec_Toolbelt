@@ -1,6 +1,12 @@
 # EnumerationTools
 ## Tools for recon on domains and servers
 
+### ExifScraper
+This almost works, but at the moment I'm having some trouble with downloading the files.
+
+BUT what it WILL do is give Exif data on all JPG's (hopefully other file types in the future) on a particular webpage. 
+Right now it does give exif data on a JPG though so it's worth having in the Toolbelt
+
 ### Get-HostInfo
 A very useful rubber-ducky esque script that swipes a bunch of host info. Currently, it returns:
 *	WiFi Passwords in plaintext
