@@ -14,7 +14,7 @@ cp /etc/ssh/sshd_config /etc/ssh/sshd_config_$date_format
 semanage port -a -t ssh_port_t -p tcp $port
 
 # Change sshd_config file to point ssh to your port
-sed -i 's/#Port 22/Port 3456/' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port $port/' /etc/ssh/sshd_config
 
 # Add port to public zone, this redirects all port 22 traffic to honeypot port
 firewall-cmd --add-port=$port/tcp --permanent
