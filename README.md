@@ -16,6 +16,8 @@ A very useful rubber-ducky esque script that swipes a bunch of host info. Curren
 
 #### Got some lines from: https://chrishales.wordpress.com/2018/01/03/powershell-password-one-liners/
 
+### Move-SSH
+Moves your ssh port in SELinux to a different port, forwards all existing port 22 traffic to a Cowrie honeypot port
 
 ### SubScanner 
 Scan a domain for the instance of up to 10,000 subdomains and return all of the connected domains
